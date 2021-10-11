@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.1/flatly/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <?php require_once('../php_partials/styles.php') ?>
+    <?php require_once('../php_partials/scripts.php') ?>
 </head>
 <body>
+
+<?php require_once('../php_partials/menu.php') ?>
 
 <div class="container-fluid mt-3">
     <div class="card col col-md-8 offset-md-2">
@@ -18,8 +19,8 @@
             <span class="ml-5 align-bottom">Pokemon</span>
         </div>
         <div class="card-body">
-            <form action="" method="post">
-                <!-- Número pokemon -->
+            <form action="../php_controllers/pokemonController.php" method="post" enctype="multipart/form-data">
+                <!-- Pokemon name -->
                 <div class="row mb-2"> 
                     <label for="number" class="col-sm-2 col-form-label">Número</label>
                     <div class="col-sm-10">
@@ -27,7 +28,7 @@
                     </div>
                 </div>
 
-                <!-- Nom pokemon -->
+                <!-- Pokemon number -->
                 <div class="row mb-2"> 
                     <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                     <div class="col-sm-10">
@@ -35,19 +36,21 @@
                     </div>
                 </div>
 
+                <!-- Region -->
                 <div class="row mb-2"> 
                     <label for="region" class="col-sm-2 col-form-label">Región</label>
                     <div class="col-sm-10">
                         <select name="region" id="region" class="form-select" >
-                            <option value="">Kanto</option>
-                            <option value="">Jotho</option>
-                            <option value="">Hoenn</option>
-                            <option value="">Sinnoh</option>
-                            <option value="">Teselia</option>
+                            <option value="Kanto">Kanto</option>
+                            <option value="Jotho">Jotho</option>
+                            <option value="Hoenn">Hoenn</option>
+                            <option value="Sinnoh">Sinnoh</option>
+                            <option value="Teselia">Teselia</option>
                         </select>
                     </div>
                 </div>
 
+                <!-- Type -->
                 <div class="row mb-2"> 
                     <label for=""  class="col-sm-2 col-form-label">Tipo</label>
                     <div class="col-sm-10">
@@ -93,7 +96,8 @@
                         </div>
                     </div>
                 </div>
-            
+                
+                <!-- height -->
                 <div class="row mb-2"> 
                     <label for="height" class="col-sm-2 col-form-label">Altura</label>
                     <div class="col-sm-10">
@@ -104,6 +108,7 @@
                     </div>
                 </div>
 
+                <!-- weight -->
                 <div class="row mb-2"> 
                      <label for="weight"  class="col-sm-2 col-form-label">Peso</label>
                     <div class="col-sm-10">
@@ -114,26 +119,26 @@
                     </div>
                 </div>
 
-                <!-- Evolución -->
+                <!-- Evolution -->
                 <div class="row mb-2"> 
                     <label for=""  class="col-sm-2 col-form-label">Evolución</label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="evolution" id="evolution1" class="form-check-input" checked>
+                            <input type="radio" name="evolution" id="evolution1" class="form-check-input" value="Sin evolución" checked>
                             <label for="evolution1" class="form-check-label">Sin evolución</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="evolution" id="evolution2" class="form-check-input">
+                            <input type="radio" name="evolution" id="evolution2" class="form-check-input" value="Primera evolución">
                             <label for="evolution2" class="form-check-label">Primera evolución</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="evolution" id="evolution3" class="form-check-input">
-                            <label for="evolution3" class="form-check-label">Otras evolución</label>
+                            <input type="radio" name="evolution" id="evolution3" class="form-check-input" value="Otras evoluciones">
+                            <label for="evolution3" class="form-check-label">Otras evoluciones</label>
                         </div>
                     </div>
                 </div>
 
-                <!-- Imagen -->
+                <!-- Image -->
                 <div class="row mb-2"> 
                     <label for="image" class="col-sm-2 col-form-label">Imagen</label>
                     <div class="col-sm-10">
@@ -143,8 +148,8 @@
                 <div class="row mb-2"> 
                     
                     <div class="col-sm-12">
-                        <button type="button" class="btn btn-primary float-end m-1">Aceptar</button>
-                        <a href="" class="btn btn-secondary float-end m-1" >Cancelar</a>
+                        <button type="submit" class="btn btn-primary float-end m-1" name="insert">Aceptar</button>
+                        <a href="./pokemonList.php" class="btn btn-secondary float-end m-1" >Cancelar</a>
                     </div>
                 </div>
                 

@@ -3,7 +3,7 @@
 // Crear pokémon.
 // Donat el número, el nom, la regió, els tipus, l’alçada, el pes i l’evolució, ha de retorna un array associatiu amb tota la informació del pokémon .
 
-function newPokemon($number, $name, $region, $type, $height, $weight, $evolution)
+function newPokemon($number, $name, $region, $type, $height, $weight, $evolution, $image)
 {
     $pokemon = [
         'number'    => $number,
@@ -12,7 +12,8 @@ function newPokemon($number, $name, $region, $type, $height, $weight, $evolution
         'type'      => $type,
         'height'    => $height,
         'weight'    => $weight,
-        'evolution' => $evolution
+        'evolution' => $evolution,
+        'image'     => $image
     ];
 
     return $pokemon;
