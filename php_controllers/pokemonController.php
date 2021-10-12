@@ -53,6 +53,23 @@ elseif (isset($_POST['delete'])) {
         $borrar = $_SERVER['DOCUMENT_ROOT'];
     }
         
+    header('Location: ' . '../php_views/pokemonList.php');
+    exit();
+}
+elseif (isset($_POST['edit'])) {
+    $number = $_POST['number'];
+    $pokemon = $pokedex[searchPokemonByNumber($pokedex, $number)];
+
+    $_SESSION['pokemon'] = $pokemon;
+
+    header('Location: ' . '../php_views/pokemon_edit.php');
+    exit();
+}
+elseif (isset($_POST['update'])) {
+    $number = $_POST['number'];
+    updatePokemon($pokedex, $_POST['number'], $_POST['name'], $_POST['region'], $_POST['type'], $_POST['height'], $_POST['weight'], $_POST['evolution']);
+    
+    $_SESSION['pokedex'] = $pokedex;
 
     header('Location: ' . '../php_views/pokemonList.php');
     exit();

@@ -114,3 +114,14 @@ function deletePokemon(&$pokedex, $number)
         array_splice($pokedex, $index, 1);
     }
 }
+
+function updatePokemon(&$pokedex, $number, $name, $region, $type, $height, $weight, $evolution)
+{
+    $index = searchPokemonByNumber($pokedex, $number);
+    $pokedex[$index]['name'] = $name;
+    $pokedex[$index]['region'] = $region;
+    $pokedex[$index]['type'] = $type;
+    $pokedex[$index]['height'] = $height;
+    $pokedex[$index]['weight'] = $weight;
+    $pokedex[$index]['evolution'] = $evolution;
+}
