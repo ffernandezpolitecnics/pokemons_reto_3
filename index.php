@@ -14,8 +14,6 @@
     
 </head>
 <body>
-    <?php require_once('./php_partials/menu.php'); ?>
-    <!-- <img src="./media/img/pokedex.jpg" class="h-100 mh-100" alt="...">s -->
-    
+    <?php require_once('./php_partials/menu.php'); ?>    
 </body>
 </html>

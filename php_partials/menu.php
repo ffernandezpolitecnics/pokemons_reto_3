@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/pokemons_reto_3/index.php">
-      <img src="/pokemons_reto_3/media/img/Pokédex_DPP.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="/pokemons_reto_3/media/img/pokedex.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
       Pokedex
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

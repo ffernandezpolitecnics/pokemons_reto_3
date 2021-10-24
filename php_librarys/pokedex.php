@@ -24,7 +24,15 @@ function newPokemon($number, $name, $region, $type, $height, $weight, $evolution
 
 function insertPokemon(&$pokedex, $pokemon)
 {
-    array_push($pokedex, $pokemon);
+    $index = searchPokemonByNumber($pokedex, $pokemon['number']);
+    if ($index != -1) {
+        $_SESSION['error'] = 'El pokemon ya existe';
+    }
+    else {
+        array_push($pokedex, $pokemon);
+        $_SESSION['message'] = 'Pokemon añadido correctamente';
+    }
+    
 }
 
 // Buscar pokémon.
@@ -112,6 +120,10 @@ function deletePokemon(&$pokedex, $number)
 
     if ($index != -1) {
         array_splice($pokedex, $index, 1);
+        $_SESSION['message'] = 'Pokémon borrado correctamente';
+    }
+    else {
+        $_SESSION['error'] = 'El pokemon no existe';
     }
 }
 

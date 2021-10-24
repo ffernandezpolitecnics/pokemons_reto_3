@@ -22,16 +22,23 @@ if (isset($_POST['insert'])) {
     $fileNameCmps = explode(".", $fileName);
     $fileExtension = strtolower(end($fileNameCmps));
     $name = '../media/img/pokemon/'.$_POST['number'].'.'.$fileExtension;
-    move_uploaded_file($fileTmpPath, $name);
+    
 
     $name_insert = '/pokemons_reto_3/media/img/pokemon/'.$_POST['number'].'.'.$fileExtension;
 
     $pokemon = newPokemon($_POST['number'], $_POST['name'], $_POST['region'], $_POST['type'], $_POST['height'], $_POST['weight'], $_POST['evolution'], $name_insert);
 
-    array_push($pokedex, $pokemon);
-    $_SESSION['pokedex'] = $pokedex;
+    insertPokemon($pokedex, $pokemon);
 
-    header('Location: ' . '../php_views/pokemonList.php');
+    if (isset($_SESSION['error'])) {
+        $_SESSION['pokemon'] = $pokemon;
+        header('Location: ' . '../php_views/pokemon.php');
+    }
+    else {
+        move_uploaded_file($fileTmpPath, $name);
+        $_SESSION['pokedex'] = $pokedex;
+        header('Location: ' . '../php_views/pokemonList.php');
+    }
     exit();
 }
 elseif (isset($_POST['delete'])) {
@@ -40,17 +47,17 @@ elseif (isset($_POST['delete'])) {
     $pokemon = $pokedex[searchPokemonByNumber($pokedex, $number)];
 
     deletePokemon($pokedex, $number);
-    $_SESSION['pokedex'] = $pokedex;
-
+    
     $ruta = $_SERVER['DOCUMENT_ROOT'] . $pokemon['image'];
 
     // if (unlink($pokemon['image']))
     if (unlink($ruta))
     {
-        $borrar = true;
+        $_SESSION['pokedex'] = $pokedex;
+        $_SESSION['message'] = 'Pokémon borrado correctamente';
     }
     else {
-        $borrar = $_SERVER['DOCUMENT_ROOT'];
+        $_SESSION['error'] = 'No se ha borrado el pokémon. Problemas al borrar la imagen';
     }
         
     header('Location: ' . '../php_views/pokemonList.php');

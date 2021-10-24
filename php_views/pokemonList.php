@@ -15,7 +15,8 @@
     <?php require_once('../php_partials/menu.php') ?>
 
     <div class="container-fluid">
-        <a id="insertar" href="./pokemon.php" class="position-fixed btn btn-info btn-lg rounded-circle text-white" > <i class="fas fa-plus"></i></a>
+        <?php require_once('../php_partials/messages.php') ?>
+        <a id="insertar" href="./pokemon.php" class="position-fixed btn btn-warning btn-lg rounded-circle text-dark" > <i class="fas fa-plus"></i></a>
 
         <div class="row row-cols-1 row-cols-md-5 mt-4">
             <?php 
@@ -30,14 +31,14 @@
             ?>
 
                 <div class="col mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 border-secondary">
                         <img src="<?php echo $pokemon['image'] ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h6 class="font-weight-bold"><?php echo $pokemon['number'] . ' - ' . $pokemon['name'] ?></h6>
+                            <h6 class="fw-bold"><?php echo $pokemon['number'] . ' - ' . $pokemon['name'] ?></h6>
                             <?php 
                             foreach ($pokemon['type'] as $type) {
                             ?>
-                                <span class="badge bg-info"><?php echo $type ?></span>
+                                <span class="badge bg-warning text-dark"><?php echo $type ?></span>
                             <?php  
                             }
                             ?>
@@ -62,12 +63,12 @@
             ?>
             
             <!-- <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/001.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">001 - Bulbasur</h6>
-                        <span class="badge bg-info">Planta</span>
-                        <span class="badge bg-info">Veneno</span> 
+                        <h6 class="fw-bold">001 - Bulbasur</h6>
+                        <span class="badge bg-warning text-dark">Planta</span>
+                        <span class="badge bg-warning text-dark">Veneno</span> 
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -79,12 +80,12 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/002.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">002 - Ivysaur</h6>
-                        <span class="badge bg-info">Planta</span>
-                        <span class="badge bg-info">Veneno</span> 
+                        <h6 class="fw-bold">002 - Ivysaur</h6>
+                        <span class="badge bg-warning text-dark">Planta</span>
+                        <span class="badge bg-warning text-dark">Veneno</span> 
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -96,12 +97,12 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/003.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">003 - Venusaur</h6>
-                        <span class="badge bg-info">Planta</span>
-                        <span class="badge bg-info">Veneno</span> 
+                        <h6 class="fw-bold">003 - Venusaur</h6>
+                        <span class="badge bg-warning text-dark">Planta</span>
+                        <span class="badge bg-warning text-dark">Veneno</span> 
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -113,11 +114,11 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/004.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">004 - Charmander</h6>
-                        <span class="badge bg-info">Fuego</span>
+                        <h6 class="fw-bold">004 - Charmander</h6>
+                        <span class="badge bg-warning text-dark">Fuego</span>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -129,11 +130,11 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/005.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">005 - Charmeleon</h6>
-                        <span class="badge bg-info">Fuego</span>
+                        <h6 class="fw-bold">005 - Charmeleon</h6>
+                        <span class="badge bg-warning text-dark">Fuego</span>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -145,12 +146,12 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/006.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">006 - Charizard</h6>
-                        <span class="badge bg-info">Fuego</span>
-                        <span class="badge bg-info">Volador</span> 
+                        <h6 class="fw-bold">006 - Charizard</h6>
+                        <span class="badge bg-warning text-dark">Fuego</span>
+                        <span class="badge bg-warning text-dark">Volador</span> 
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -162,11 +163,11 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/007.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">007 - Squirtle</h6>
-                        <span class="badge bg-info">Agua</span>
+                        <h6 class="fw-bold">007 - Squirtle</h6>
+                        <span class="badge bg-warning text-dark">Agua</span>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse">
@@ -178,11 +179,11 @@
                 </div>
             </div>
              <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/008.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">008 - Wartortle</h6>
-                        <span class="badge bg-info">Agua</span>
+                        <h6 class="fw-bold">008 - Wartortle</h6>
+                        <span class="badge bg-warning text-dark">Agua</span>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">
@@ -194,11 +195,11 @@
                 </div>
             </div>
             <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 border-secondary">
                     <img src="../media/img/pokemons/009.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h6 class="font-weight-bold">009 - Blastoise</h6>
-                        <span class="badge bg-info">Agua</span>
+                        <h6 class="fw-bold">009 - Blastoise</h6>
+                        <span class="badge bg-warning text-dark">Agua</span>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex flex-row-reverse bd-highlight">

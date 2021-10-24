@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (isset($_SESSION['pokemon'])) {
+        $pokemon = $_SESSION['pokemon'];
+        unset($_SESSION['pokemon']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,19 +13,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php require_once('../php_partials/styles.php') ?>
-    <?php require_once('../php_partials/scripts.php') ?>
+    <?php require_once('../php_partials/styles.php'); ?>
+    <?php require_once('../php_partials/scripts.php'); ?>
     <link rel="stylesheet" href="../style/miCss.css">
 </head>
 <body>
 
-<?php require_once('../php_partials/menu.php') ?>
+<?php require_once('../php_partials/menu.php'); ?>
 
 <div class="container-fluid mt-3">
-    <div class="card col col-md-8 offset-md-2">
-        <div class="card-header bg-secondary text-dark ">
+    <?php require_once('../php_partials/messages.php'); ?>
+    <div class="card col col-md-8 offset-md-2 border-secondary">
+        <div class="card-header bg-secondary">
             <img src="../media/img/pokeball.svg.png" alt="" height="40" width="40" class="mr-5">
-            <span class="ml-5 align-center">Pokemon</span>
+            <span class="ml-5 align-center text-light">Pokemon</span>
         </div>
         <div class="card-body">
             <form action="../php_controllers/pokemonController.php" method="post" enctype="multipart/form-data">
@@ -25,7 +34,7 @@
                 <div class="row mb-2"> 
                     <label for="number" class="col-sm-2 col-form-label">Número</label>
                     <div class="col-sm-10">
-                        <input type="text" name="number" id="number" class="form-control" autofocus>
+                        <input type="text" name="number" id="number" class="form-control" autofocus value="<?php isset($pokemon)? $pokemon['number']:''; ?>">
                     </div>
                 </div>
 
@@ -33,7 +42,7 @@
                 <div class="row mb-2"> 
                     <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                     <div class="col-sm-10">
-                         <input type="text" name="name" id="name" class="form-control">
+                         <input type="text" name="name" id="name" class="form-control" value="<?php isset($pokemon)? $pokemon['name']:''; ?>">
                     </div>
                 </div>
 
@@ -149,7 +158,7 @@
                 <div class="row mb-2"> 
                     
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary float-end m-1" name="insert">Aceptar</button>
+                        <button type="submit" class="btn btn-primary text-light float-end m-1" name="insert">Aceptar</button>
                         <a href="./pokemonList.php" class="btn btn-secondary float-end m-1" >Cancelar</a>
                     </div>
                 </div>
