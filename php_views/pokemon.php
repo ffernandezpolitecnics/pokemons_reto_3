@@ -7,6 +7,7 @@
     <title>Document</title>
     <?php require_once('../php_partials/styles.php') ?>
     <?php require_once('../php_partials/scripts.php') ?>
+    <link rel="stylesheet" href="../style/miCss.css">
 </head>
 <body>
 
@@ -14,9 +15,9 @@
 
 <div class="container-fluid mt-3">
     <div class="card col col-md-8 offset-md-2">
-        <div class="card-header bg-primary text-light">
+        <div class="card-header bg-secondary text-dark ">
             <img src="../media/img/pokeball.svg.png" alt="" height="40" width="40" class="mr-5">
-            <span class="ml-5 align-bottom">Pokemon</span>
+            <span class="ml-5 align-center">Pokemon</span>
         </div>
         <div class="card-body">
             <form action="../php_controllers/pokemonController.php" method="post" enctype="multipart/form-data">

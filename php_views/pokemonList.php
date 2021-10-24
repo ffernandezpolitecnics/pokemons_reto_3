@@ -15,7 +15,7 @@
     <?php require_once('../php_partials/menu.php') ?>
 
     <div class="container-fluid">
-        <a id="insertar" href="./pokemon.php" class="position-fixed btn btn-success btn-lg rounded-circle" > <i class="fas fa-plus"></i></a>
+        <a id="insertar" href="./pokemon.php" class="position-fixed btn btn-info btn-lg rounded-circle text-white" > <i class="fas fa-plus"></i></a>
 
         <div class="row row-cols-1 row-cols-md-5 mt-4">
             <?php 
@@ -48,10 +48,11 @@
                                     <button type="submit" name="edit" class="btn btn-outline-primary ms-1"><i class="far fa-edit"></i></button>
                                     <input type="hidden" name="number" value="<?php echo $pokemon['number']; ?>">
                                 </form>
-                                <form action="../php_controllers/pokemonController.php" method="post">
-                                    <button type="submit" name="delete" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
-                                    <input type="hidden" name="number" value="<?php echo $pokemon['number']; ?>">
-                                </form>
+                                <!-- <form action="../php_controllers/pokemonController.php" method="post"> -->
+                                    <button type="button" name="delete" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-number="<?php echo $pokemon['number'] ?>" data-bs-name="<?php echo $pokemon['name'] ?>"><i class="far fa-trash-alt"></i></button>
+                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button> -->
+
+                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -209,11 +210,51 @@
                 </div>
             </div> -->
         </div>
-
-
-
-
     </div>
 
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <form action="../php_controllers/pokemonController.php" method="post">
+                    <button type="submit" class="btn btn-danger" name="delete"><i class="fa fa-trash-alt" aria-hidden="true"></i> Esborrar</button>
+                    <input type="hidden" name="number" value="<?php echo $pokemon['number']; ?>">
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script>
+    var deleteModal = document.getElementById('deleteModal')
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var numberPokemon = button.getAttribute('data-bs-number')
+    var namePokemon = button.getAttribute('data-bs-name')
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = deleteModal.querySelector('.modal-title')
+    var message = document.getElementById('message');
+
+    modalTitle.textContent = numberPokemon + ' - ' + namePokemon;
+    message.textContent = '¿Estas seguro de borrar el pokémon ' + namePokemon + '?'
+
+    // modalBodyInput.value = recipient
+})
+</script>
+
+
 </html>

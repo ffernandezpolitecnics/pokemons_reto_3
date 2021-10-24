@@ -1,8 +1,12 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 body {
     background-image: url('../media/img/Pokédex_DPP.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #8EB8F1;
+
 }

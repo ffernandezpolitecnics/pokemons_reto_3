@@ -17,7 +17,6 @@
             "url": "http://localhost:8080/pokemons_reto_3/index.php",
             "webRoot": "${workspaceFolder}"
         }
-
         
     ]
 }
